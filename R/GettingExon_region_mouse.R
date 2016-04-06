@@ -1,7 +1,6 @@
 # Generating a refernece bed file which contains the exonic regions of all protein coding genes
 # 30/03/16
 
-
 library(GenomicAlignments)
 library(dplyr)
 
