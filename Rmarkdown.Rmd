@@ -21,6 +21,6 @@ The workflow invovles three stages
 
 Final result would look 
 
-![](figures/example_figure.pdf)
+!(figures/example_figure.jpeg)
 
 
