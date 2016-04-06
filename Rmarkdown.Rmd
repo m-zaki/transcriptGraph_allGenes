@@ -21,6 +21,5 @@ The workflow invovles three stages
 
 Final result would look 
 
-!(figures/example_figure.jpeg)
-
+![Example of 5' to 3' figure](figures/example_figure.jpeg)
 
