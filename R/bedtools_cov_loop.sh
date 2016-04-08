@@ -8,12 +8,15 @@ module load apps/bedtools/2.25.0/gcc-4.4.7
 source /home/zfadlullah/script/pbs/troodonHeader.sh
 
 # Location of bed file (bed files which orginate from bam2bed)
-bed_folder=/home/zfadlullah/tmp/GL26_NEB
+bed_folder= "INSERT PATH"
 bed_list=(`ls ${bed_folder}/*.bed`)
 
 # Location of ensemble reference bed file
-# Refer to link on how to generate the file -
-EnsBED=/scratch/zaki/file/ref/zaki_customBED/EnsDb.Hsapiens.v75_proteinCoding_transcript.bed
+# Refer to link on how to generate the file - https://github.com/m-zaki/transcriptGraph_allGenes/blob/master/R/GettingExon_region_human.R
+# HUMAN 
+# EnsBED=/scratch/zaki/file/ref/zaki_customBED/EnsDb.Hsapiens.v75_proteinCoding_transcript.bed
+# MOUSE 
+# EnsBED=/scratch/zaki/file/ref/zaki_customBED/EnsDb.Mmusculus.v75_proteinCoding_transcript.bed
 
 # Bedtools Coverage output
 perBase_folder=${bed_folder}/perBase
