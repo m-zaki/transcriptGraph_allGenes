@@ -38,9 +38,13 @@ for (r in seq_along(files)){
   colnames(perc_cov_df)[2] <- paste0("perc_", names(files)[r]) # Rename the columns so each sample has a different name
   perc_sample_list[[r]] <- perc_cov_df
   
+  # Merging data frame from list - http://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame-2/
+  perc_df <- Reduce(function(x,y) {merge(x,y)}, perc_sample_list)
   
   # Use the function "gene.bin.mean"
-  mean_bin_list[[i]] <- gene.bin.mean(input = dat_l)
+  for (i in seq_along(dat_l)) {
+    mean_bin_list[[i]] <- gene.bin.mean(input = dat_l)
+  }
   
   # Unlist the object
   bin_cov <- do.call("rbind", mean_bin_list)
@@ -48,7 +52,7 @@ for (r in seq_along(files)){
   
   saveRDS(bin_cov, file = paste0(names(files[r]) ,"_cov.rds"))
 }
-  
+
 
 
 
