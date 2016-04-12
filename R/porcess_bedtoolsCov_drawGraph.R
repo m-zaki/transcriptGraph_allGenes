@@ -53,7 +53,7 @@ for (r in seq_along(files)){
 
 # Merging data frame from list - http://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame-2/
 perc_df <- Reduce(function(x,y) {merge(x,y)}, perc_sample_list)
-
+write.table(perc_df, "percentage_genesCovered.txt", quote=F, sep="\t", col.names=NA)
 
 
 
