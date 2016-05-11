@@ -5,7 +5,8 @@ library(ggplot2)
 source("R/functions.R")
 
 workDir <- "data/bedtoolsCov_output/example_data"
-
+outDir <- "output/rds_files"
+dir.create(outDir)
 # List all the files 
 files <- list.files(workDir, pattern="*.txt",full.names = TRUE) # List all .txt files
 names(files) <- sapply(files, function(fn) { gsub('.txt', '', basename(fn)) })
@@ -47,7 +48,7 @@ for (r in seq_along(files)){
   bin_cov <- do.call("rbind", mean_bin_list)
   colnames(bin_cov)[2] <- paste0("meanCov_", names(files)[r]) # Rename the columns so each sample has a different name
   
-  saveRDS(bin_cov, file = paste0(names(files[r]) ,"_cov.rds"))
+  saveRDS(bin_cov, file = file.path(outDir, paste0(names(files[r]) ,"_cov.rds")))
 }
 
 
